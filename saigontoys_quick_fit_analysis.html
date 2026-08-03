@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SaigonToys — Quick Fit Analysis</title>
+<meta name="description" content="A quick SWOT analysis of SaigonToys as a possible retail partner for the Bến Thành Market stall.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2A2622;
+  --ink2:#4C4647;
+  --terra:#C76537;
+  --sage:#798472;
+  --straw:#E0DBC8;
+  --strawlt:#F2EFE7;
+  --white:#FFFFFF;
+  --offw:#F7F3EC;
+  --muted:#6E6A64;
+  --mutedlt:#C7C0B4;
+  --line:#E3DED4;
+  --head:'Playfair Display', Georgia, serif;
+  --body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--offw);
+  -webkit-font-smoothing:antialiased;
+}
+.page{min-height:100vh;}
+.wrap{width:min(1180px, calc(100% - 48px));margin:0 auto;}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:var(--ink);
+  color:var(--offw);
+  padding:clamp(54px,8vw,104px) 0 clamp(48px,7vw,88px);
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  width:440px;
+  height:440px;
+  right:-150px;
+  top:-185px;
+  border-radius:50%;
+  background:var(--terra);
+  opacity:.12;
+}
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1.5fr) minmax(260px,.7fr);
+  gap:clamp(34px,5vw,72px);
+  align-items:end;
+}
+.kicker{
+  color:var(--terra);
+  font-size:12px;
+  line-height:1.4;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+h1{
+  font-family:var(--head);
+  font-size:clamp(42px,7.2vw,78px);
+  line-height:1.01;
+  font-weight:700;
+  max-width:760px;
+}
+.dek{
+  margin-top:22px;
+  max-width:820px;
+  color:var(--mutedlt);
+  font-size:clamp(16px,2vw,21px);
+  line-height:1.58;
+}
+.dek strong{color:var(--offw);font-weight:650;}
+.snapshot{
+  background:rgba(247,243,236,.07);
+  border:1px solid rgba(247,243,236,.14);
+  border-radius:18px;
+  padding:24px;
+  backdrop-filter:blur(7px);
+  box-shadow:0 16px 34px rgba(0,0,0,.17);
+}
+.snapshot-label{
+  color:var(--terra);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+.snapshot-list{display:grid;gap:14px;}
+.snapshot-item{
+  display:grid;
+  grid-template-columns:54px 1fr;
+  gap:12px;
+  align-items:center;
+}
+.snapshot-num{
+  font-family:var(--head);
+  font-size:25px;
+  font-weight:700;
+  color:var(--offw);
+}
+.snapshot-copy{
+  color:var(--mutedlt);
+  font-size:13px;
+  line-height:1.35;
+}
+
+main{padding:clamp(42px,6vw,76px) 0 clamp(60px,8vw,100px);}
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:28px;
+}
+.eyebrow{
+  color:var(--terra);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+h2{
+  font-family:var(--head);
+  font-size:clamp(30px,4vw,44px);
+  line-height:1.08;
+}
+.section-note{
+  color:var(--muted);
+  max-width:430px;
+  font-size:14px;
+  line-height:1.55;
+}
+
+.swot-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.card{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  padding:clamp(24px,3vw,34px);
+  border:1px solid var(--line);
+  background:var(--white);
+  box-shadow:0 12px 28px rgba(42,38,34,.08);
+}
+.card::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  right:0;
+  height:5px;
+  background:var(--terra);
+}
+.card.sage::before{background:var(--sage);}
+.card.ink::before{background:var(--ink2);}
+.card.straw::before{background:var(--straw);}
+.card-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+}
+.badge{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  color:#fff;
+  background:var(--terra);
+  box-shadow:0 7px 16px rgba(42,38,34,.16);
+}
+.card.sage .badge{background:var(--sage);}
+.card.ink .badge{background:var(--ink2);}
+.card.straw .badge{background:var(--straw);color:var(--ink);}
+.card h3{
+  font-family:var(--head);
+  font-size:clamp(22px,2.7vw,29px);
+  line-height:1.1;
+}
+ul{list-style:none;display:grid;gap:15px;}
+li{
+  position:relative;
+  padding-left:21px;
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.58;
+}
+li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:.64em;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--terra);
+}
+.card.sage li::before{background:var(--sage);}
+.card.ink li::before{background:var(--ink2);}
+.card.straw li::before{background:#B9A98F;}
+li strong{color:var(--ink);font-weight:650;}
+
+.bottom-line{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:clamp(22px,4vw,44px);
+  align-items:center;
+  background:var(--ink);
+  color:var(--offw);
+  border-radius:20px;
+  padding:clamp(27px,4vw,42px);
+  box-shadow:0 18px 38px rgba(42,38,34,.18);
+}
+.verdict{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:132px;
+  border-radius:16px;
+  background:var(--terra);
+  padding:18px;
+  text-align:center;
+  font-family:var(--head);
+  font-size:24px;
+  line-height:1.1;
+  font-weight:700;
+}
+.bottom-copy h3{
+  color:var(--terra);
+  font-family:var(--head);
+  font-size:clamp(24px,3vw,32px);
+  margin-bottom:10px;
+}
+.bottom-copy p{
+  color:var(--mutedlt);
+  font-size:clamp(15px,1.7vw,18px);
+  line-height:1.6;
+}
+.bottom-copy strong{color:var(--offw);}
+
+.questions{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.question{
+  background:var(--strawlt);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:19px;
+}
+.question-num{
+  font-family:var(--head);
+  color:var(--terra);
+  font-weight:700;
+  font-size:22px;
+  margin-bottom:8px;
+}
+.question p{
+  color:var(--ink);
+  font-size:13.5px;
+  line-height:1.48;
+  font-weight:600;
+}
+.footer{
+  margin-top:34px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:19px;
+  border-top:1px solid var(--line);
+}
+
+@media (max-width:860px){
+  .hero-grid,.swot-grid,.bottom-line,.questions{grid-template-columns:1fr;}
+  .hero-grid{align-items:start;}
+  .snapshot{max-width:520px;}
+  .section-head{display:block;}
+  .section-note{margin-top:12px;}
+  .verdict{min-height:90px;}
+}
+@media (max-width:520px){
+  .wrap{width:min(100% - 30px,1180px);}
+  .hero{padding-top:46px;}
+  .snapshot-item{grid-template-columns:48px 1fr;}
+  .card{padding:23px 20px;}
+  .footer{display:block;}
+  .footer span:last-child{display:block;margin-top:6px;}
+}
+@media print{
+  body{background:#fff;}
+  .hero{padding:38px 0;background:var(--ink)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  main{padding:32px 0;}
+  .card,.bottom-line{break-inside:avoid;box-shadow:none;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">Bến Thành Retail Pivot · Partner Review</div>
+        <h1>SaigonToys<br>Quick Fit Analysis</h1>
+        <p class="dek">
+          Their catalog is <strong>collector and hobbyist merchandise</strong> — Mini GT, Tarmac Works, Hot Wheels, Gundam and Bandai kits, Pokémon Plamo, and Blokees blind boxes — not general children's toys. That narrower positioning matters when judging whether the concept fits Tuấn's tourist-facing stall.
+        </p>
+      </div>
+      <aside class="snapshot" aria-label="Business snapshot">
+        <div class="snapshot-label">Business snapshot</div>
+        <div class="snapshot-list">
+          <div class="snapshot-item"><div class="snapshot-num">4</div><div class="snapshot-copy">Existing physical branches across Ho Chi Minh City</div></div>
+          <div class="snapshot-item"><div class="snapshot-num">~470</div><div class="snapshot-copy">Live SKUs across diecast, model kits, and collectibles</div></div>
+          <div class="snapshot-item"><div class="snapshot-num">125K–650K₫</div><div class="snapshot-copy">Typical price band — roughly US$5–25</div></div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Strategic read</div>
+          <h2>Fast inventory. Unproven tourist fit.</h2>
+        </div>
+        <p class="section-note">The opportunity is strongest as a low-risk retail test. The weakness is that SaigonToys' current customer, product mix, and store geography do not naturally match Bến Thành's passing tourist traffic.</p>
+      </div>
+
+      <section class="swot-grid" aria-label="SWOT analysis">
+        <article class="card">
+          <div class="card-head">
+            <div class="badge" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l3 3 7-8"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h3>Strengths</h3>
+          </div>
+          <ul>
+            <li><strong>Established operator:</strong> four physical branches, an active e-commerce site, roughly 470 live SKUs, and a Facebook presence.</li>
+            <li><strong>Display-friendly product:</strong> diecast cars and Gundam kits reward visual merchandising and browsing, which suits a market-stall format.</li>
+            <li><strong>Recognizable licenses:</strong> Hot Wheels, Pokémon, and Gundam have pull beyond dedicated collectors.</li>
+            <li><strong>Immediate legal inventory:</strong> the stall could be filled quickly with sourced product and almost no product-development lead time.</li>
+          </ul>
+        </article>
+
+        <article class="card ink">
+          <div class="card-head">
+            <div class="badge" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"/><path d="M12 17.2v.1"/><path d="M4.7 21h14.6a1.7 1.7 0 001.5-2.5L13.5 4.8a1.7 1.7 0 00-3 0L3.2 18.5A1.7 1.7 0 004.7 21z"/></svg>
+            </div>
+            <h3>Weaknesses</h3>
+          </div>
+          <ul>
+            <li><strong>No District 1 proof:</strong> the existing branches are in Tân Bình, District 7, Phú Nhuận, and Tân Hưng — not tourist-heavy Bến Thành.</li>
+            <li><strong>Local-collector price logic:</strong> the 125,000–650,000₫ range appears designed for hobbyists, not necessarily impulse souvenir buyers.</li>
+            <li><strong>Fragile and bulky:</strong> model kits and boxed collectibles are less convenient for travelers than textiles, crafts, or compact gifts.</li>
+            <li><strong>Limited commercial muscle:</strong> the Vietnamese-language KiotViet storefront suggests a small-to-mid-scale retailer rather than a major distributor with deep marketing support.</li>
+          </ul>
+        </article>
+
+        <article class="card sage">
+          <div class="card-head">
+            <div class="badge" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-9"/><path d="M15 7h5v5"/></svg>
+            </div>
+            <h3>Opportunities</h3>
+          </div>
+          <ul>
+            <li><strong>Low-capital pilot:</strong> consignment or revenue-share terms could make this a fast Play 1 test without buying inventory outright.</li>
+            <li><strong>Content potential:</strong> unboxings, displays, launches, and collector culture could support the content-and-community layer around Fibre House.</li>
+            <li><strong>Tourist-specific assortment:</strong> a smaller mix of compact, lower-priced, or Vietnam-themed SKUs might perform better than importing the full catalog logic.</li>
+          </ul>
+        </article>
+
+        <article class="card straw">
+          <div class="card-head">
+            <div class="badge" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.6L2.6 17a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.6a2 2 0 00-3.4 0z"/></svg>
+            </div>
+            <h3>Threats</h3>
+          </div>
+          <ul>
+            <li><strong>Weak strategic fit:</strong> Japanese-license collectibles do not directly answer the “made in Vietnam, sells itself to tourists” opportunity.</li>
+            <li><strong>Double-thin margins:</strong> SaigonToys' wholesale economics plus Tuấn's retail cut may recreate the same margin problem already identified for Play 1.</li>
+            <li><strong>Muddled identity:</strong> a collector-toy shop could dilute a coherent made-in-Vietnam, foreigner-friendly retail story.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="bottom-line" aria-label="Bottom line">
+        <div class="verdict">Worth a<br>conversation</div>
+        <div class="bottom-copy">
+          <h3>Stopgap candidate, not yet a strategic fit.</h3>
+          <p>Before Tuấn commits shelf space, the key issue is <strong>deal structure</strong> — consignment, lease, revenue share, or wholesale — and whether SaigonToys will build a <strong>tourist-appropriate assortment</strong>. Without those two conditions, this looks more like a decent temporary tenant than part of the long-term brand story for the stall.</p>
+        </div>
+      </section>
+
+      <section class="questions" aria-label="Questions for SaigonToys">
+        <div class="question"><div class="question-num">01</div><p>Will they offer consignment or revenue-share terms instead of requiring Tuấn to buy inventory?</p></div>
+        <div class="question"><div class="question-num">02</div><p>Will they create a compact, lower-priced mix designed specifically for foreign tourists?</p></div>
+        <div class="question"><div class="question-num">03</div><p>What gross margin remains after SaigonToys' share, staffing, stall costs, and shrinkage?</p></div>
+      </section>
+
+      <footer class="footer">
+        <span>Fibre House Saigon · Bến Thành Retail Pivot</span>
+        <span>Quick working analysis · 3 August 2026</span>
+      </footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>
